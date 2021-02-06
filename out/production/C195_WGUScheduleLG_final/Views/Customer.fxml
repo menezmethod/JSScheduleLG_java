@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="620.0" maxWidth="1024.0" minWidth="1024.0" prefHeight="630.0" prefWidth="1024.0" style="-fx-background-color:#F6E4CB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="64.0" prefWidth="1024.0" style="-fx-background-color: #f3a712;">
+         <center>
+            <Label style="-fx-font-weight: bold;" text="John and Smiths Scheduling System" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <BorderPane layoutY="600.0" prefHeight="20.0" prefWidth="1024.0" style="-fx-background-color: #534D41;">
+         <left>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#doBack" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DB2B39; -fx-font-weight: bold;" text="BACK" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </left>
+      </BorderPane>
+      
+      <HBox layoutX="319.0" layoutY="88.0" prefHeight="31.0" prefWidth="387.0" />
+      <TableView fx:id="customerTable" layoutX="27.0" layoutY="126.0" prefHeight="415.0" prefWidth="970.0" stylesheets="@views.css">
+         <columns>
+            <TableColumn fx:id="customerID" prefWidth="41.0" text="ID">
+               <cellValueFactory>
+                  <PropertyValueFactory property="customerId" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="customerName" prefWidth="119.0" text="Name">
+               <cellValueFactory>
+                  <PropertyValueFactory property="customerName" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="customerAddress" prefWidth="207.0" text="Address">
+               <cellValueFactory>
+                  <PropertyValueFactory property="address" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="postalCode" prefWidth="91.0" text="Postal Code">
+               <cellValueFactory>
+                  <PropertyValueFactory property="postalCode" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="phoneNumber" prefWidth="145.0" text="Phone Number">
+               <cellValueFactory>
+                  <PropertyValueFactory property="phone" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="divisionId" prefWidth="183.0" text="Division">
+               <cellValueFactory>
+                  <PropertyValueFactory property="division" />
+               </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="country" prefWidth="169.0" text="Country">
+               <cellValueFactory>
+                  <PropertyValueFactory property="country" />
+               </cellValueFactory>
+            </TableColumn>
+         </columns>
+      </TableView>
+      <ButtonBar layoutX="700.0" layoutY="550.0" prefHeight="40.0" prefWidth="297.0">
+        <buttons>
+          <Button fx:id="addCustomer" mnemonicParsing="false" onAction="#doNewCustomer" styleClass="main_buttons" stylesheets="@views.css" text="Add" />
+            <Button fx:id="updateCustomer" layoutX="135.0" layoutY="18.0" mnemonicParsing="false" onAction="#doUpdateCustomer" styleClass="main_buttons" stylesheets="@views.css" text="Update" />
+            <Button fx:id="deleteCustomer" mnemonicParsing="false" onAction="#doDeleteCustomer" styleClass="main_buttons" stylesheets="@views.css" text="Delete" />
+        </buttons>
+      </ButtonBar>
+      <Label fx:id="headTitle" layoutX="27.0" layoutY="82.0" text="Customers">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

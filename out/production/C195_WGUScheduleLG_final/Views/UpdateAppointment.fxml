@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="620.0" maxWidth="1024.0" minWidth="1024.0" prefHeight="630.0" prefWidth="1024.0" style="-fx-background-color:#F6E4CB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="64.0" prefWidth="1024.0" style="-fx-background-color: #f3a712;">
+         <center>
+            <Label style="-fx-font-weight: bold;" text="John and Smiths Scheduling System" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <BorderPane layoutY="600.0" prefHeight="20.0" prefWidth="1024.0" style="-fx-background-color: #534D41;">
+         <left>
+            <Button fx:id="cancelBtn" mnemonicParsing="false" onAction="#doCancel" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DB2B39; -fx-font-weight: bold;" text="CANCEL" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Label text="Business Hours: 8:00 a.m. to 10:00 p.m. EST - Everyday" textFill="WHITE" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+         </right>
+      </BorderPane>
+      <ButtonBar layoutX="693.0" layoutY="551.0" prefHeight="40.0" prefWidth="297.0">
+         <buttons>
+            <ButtonBar prefHeight="40.0" prefWidth="200.0">
+              <buttons>
+                <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#doSave" styleClass="main_buttons" stylesheets="@views.css" text="Save" />
+              </buttons>
+            </ButtonBar>
+         </buttons>
+      </ButtonBar>
+      <Label layoutX="27.0" layoutY="82.0" text="Update Appointment">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <GridPane layoutX="27.0" layoutY="146.0" prefHeight="346.0" prefWidth="970.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="455.0">
+               <children>
+                  <Label fx:id="titleLbl" text="Title">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="titleIn" prefHeight="25.0" prefWidth="433.0" styleClass="text_fields_main" stylesheets="@views.css">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+                  <Label fx:id="appointmentIdLbl" style="visibility: hidden;" text="ID" />
+                  <TextField fx:id="appointmentIdFld" style="visibility: hidden;" />
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+               <children>
+                  <Label fx:id="descriptionLbl" text="Description">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="descriptionIn" styleClass="text_fields_main" stylesheets="@views.css">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+               <GridPane.margin>
+                  <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+               </GridPane.margin>
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="484.0" GridPane.rowIndex="2">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="80.0" prefWidth="240.0">
+                           <children>
+                              <Label fx:id="startLbl" text="Start Date / Time">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="startTimeIn" prefHeight="25.0" prefWidth="200.0" styleClass="text_fields_main" stylesheets="@views.css" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ComboBox fx:id="startHr" prefHeight="25.0" prefWidth="100.0" promptText="Hour" styleClass="secondary_buttons" stylesheets="@views.css" />
+                                    <ComboBox fx:id="startMin" prefHeight="25.0" prefWidth="100.0" promptText="Minute" styleClass="secondary_buttons" stylesheets="@views.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="80.0" prefWidth="240.0">
+                           <children>
+                              <Label fx:id="endLbl" text="End Date / Time">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <DatePicker fx:id="endTimeIn" prefHeight="25.0" prefWidth="200.0" styleClass="text_fields_main" stylesheets="@views.css" />
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <ComboBox fx:id="endHr" prefHeight="25.0" prefWidth="100.0" promptText="Hour" styleClass="secondary_buttons" stylesheets="@views.css" />
+                                    <ComboBox fx:id="endMin" prefHeight="25.0" prefWidth="100.0" promptText="Minute" styleClass="secondary_buttons" stylesheets="@views.css" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <HBox prefHeight="80.0" prefWidth="463.0">
+                     <children>
+                        <VBox prefHeight="80.0" prefWidth="490.0">
+                           <children>
+                              <Label fx:id="locationLbl" text="Location">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="locationIn" styleClass="text_fields_main" stylesheets="@views.css" />
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </HBox.margin>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="0.0" prefWidth="482.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <children>
+               <VBox prefHeight="80.0" prefWidth="160.0">
+                  <children>
+                     <Label fx:id="contactLbl" text="Contact">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="contactBoxIn" prefWidth="150.0" styleClass="secondary_buttons" stylesheets="@views.css" />
+                  </children>
+                  <HBox.margin>
+                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                  </HBox.margin>
+               </VBox>
+               <VBox prefHeight="80.0" prefWidth="160.0">
+                  <children>
+                     <Label fx:id="customerIdLbl" text="Customer ID">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="customerBoxIn" prefWidth="150.0" styleClass="secondary_buttons" stylesheets="@views.css" />
+                  </children>
+                  <HBox.margin>
+                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                  </HBox.margin>
+               </VBox>
+               <VBox prefHeight="80.0" prefWidth="160.0">
+                  <children>
+                     <Label fx:id="userLbl" text="User">
+                        <font>
+                           <Font size="18.0" />
+                        </font>
+                     </Label>
+                     <ComboBox fx:id="userBoxIn" prefWidth="150.0" styleClass="secondary_buttons" stylesheets="@views.css" />
+                  </children>
+                  <HBox.margin>
+                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                  </HBox.margin>
+               </VBox>
+            </children>
+         </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <children>
+                  <VBox prefHeight="80.0" prefWidth="486.0">
+                     <children>
+                        <Label fx:id="typeLbl" text="Type">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="typeIn" styleClass="text_fields_main" stylesheets="@views.css" />
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </GridPane>
+   </children>
+</AnchorPane>

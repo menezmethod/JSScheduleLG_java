@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="rootPane" maxHeight="620.0" maxWidth="1024.0" minWidth="1024.0" prefHeight="630.0" prefWidth="1024.0" style="-fx-background-color:#F6E4CB;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="64.0" prefWidth="1024.0" style="-fx-background-color: #f3a712;">
+         <center>
+            <Label style="-fx-font-weight: bold;" text="John and Smiths Scheduling System" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Label>
+         </center>
+      </BorderPane>
+      <BorderPane layoutY="600.0" prefHeight="20.0" prefWidth="1024.0" style="-fx-background-color: #534D41;">
+         <left>
+            <Button fx:id="backButton" mnemonicParsing="false" onAction="#doBack" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #DB2B39; -fx-font-weight: bold;" text="BACK" textFill="WHITE" BorderPane.alignment="CENTER" />
+         </left>
+      </BorderPane>
+      <Label fx:id="headTitle" layoutX="27.0" layoutY="82.0" text="Reports">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TabPane layoutX="27.0" layoutY="128.0" prefHeight="460.0" prefWidth="970.0" styleClass="tab" stylesheets="@views.css" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="ReportsByMonth" text="All Appointment Types by Month">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="391.0" prefWidth="949.0">
+                     <children>
+                        <TableView fx:id="typeTotalTable" prefHeight="415.0" prefWidth="970.0">
+                          <columns>
+                            <TableColumn fx:id="colMonth" prefWidth="510.0" text="Month" />
+                            <TableColumn fx:id="colTypeTotal" minWidth="0.0" prefWidth="51.0" text="Total" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="locationReports" text="All Appointments by Location">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="locationTableView" prefHeight="415.0" prefWidth="970.0">
+                           <columns>
+                              <TableColumn fx:id="colLocation" prefWidth="515.0" text="Location" />
+                              <TableColumn fx:id="colLocationTotal" prefWidth="43.0" text="Total" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="ReportsSchedule" text="Contact's Schedule">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                         <TableView fx:id="appointmentTable" layoutX="26.0" layoutY="6.0" prefHeight="415.0" prefWidth="970.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                             <columns>
+                                 <TableColumn fx:id="appointmentId" prefWidth="53.0" text="ID">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="appointmentId" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                                 <TableColumn fx:id="title" prefWidth="226.0" text="Title">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="title" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                                 <TableColumn fx:id="description" prefWidth="183.0" text="Description">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="description" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                                 <TableColumn fx:id="type" prefWidth="108.0" text="Type">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="type" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                                 <TableColumn fx:id="startTime" prefWidth="152.0" text="Start Date and Time">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="formattedLocalStart" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                                 <TableColumn fx:id="endTime" prefWidth="153.0" text="End Date and Time">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="formattedLocalEnd" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                                 <TableColumn fx:id="customerId" minWidth="0.0" prefWidth="75.0" text="Customer ID">
+                                     <cellValueFactory>
+                                         <PropertyValueFactory property="customerId" />
+                                     </cellValueFactory>
+                                 </TableColumn>
+                             </columns>
+                             <items>
+                             </items>
+                         </TableView>
+                        <ComboBox fx:id="contactBoxIn" layoutX="762.0" layoutY="404.0" onAction="#doContactBox" prefHeight="25.0" prefWidth="206.0" promptText="Select Contact" styleClass="secondary_buttons" stylesheets="@views.css" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
